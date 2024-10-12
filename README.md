@@ -29,13 +29,13 @@ This repository lists various AI platforms where you can chat with lifelike AI c
 
 Below are the screenshots of the main pages of these websites:
 
-![CrushOn AI Screenshot](images/crushon_screenshot.png)
-![GPT Girlfriend Screenshot](images/gptgirlfriend_screenshot.png)
-![Dopple AI Screenshot](images/dopple_screenshot.png)
-![Moemate AI Screenshot](images/moemate_screenshot.png)
-![AI Cupid Screenshot](images/aicupid_screenshot.png)
-![Talkie AI Screenshot](images/talkie_screenshot.png)
-![MiniApps AI Screenshot](images/miniapps_screenshot.png)
+![CrushOn AI Screenshot](images/crushon.png)
+![GPT Girlfriend Screenshot](images/gptgirlfriend.online.png)
+![Dopple AI Screenshot](images/beta.dopple.png)
+![Moemate AI Screenshot](images/moemate.png)
+![AI Cupid Screenshot](images/aicupid.png)
+![Talkie AI Screenshot](images/talkie-ai.png)
+![MiniApps AI Screenshot](images/miniapps.png)
 
 ---
 
