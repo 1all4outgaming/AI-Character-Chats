@@ -25,6 +25,14 @@ This repository lists various AI platforms where you can chat with lifelike AI c
 7. **[MiniApps AI](https://miniapps.ai)** - Various AI mini-apps for interactive chats.  
    ![MiniApps AI Screenshot](images/miniapps.png)
 
+
+
+
+
+
+
+
+
 ## 📸 Website Screenshots
 
 Below are the screenshots of the main pages of these websites:
