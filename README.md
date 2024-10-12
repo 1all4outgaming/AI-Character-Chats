@@ -7,10 +7,10 @@ This repository lists various AI platforms where you can chat with lifelike AI c
 1. **[CrushOn AI](https://crushon.ai)** - No Filter NSFW Character AI Chat.  
    ![CrushOn AI Screenshot](images/crushon_screenshot.png)
 
-2. **[GPT Girlfriend](https://www.gptgirlfriend.online)** - Create and chat with a virtual AI girlfriend.  
+2. **[GPT Girlfriend](https://www.gptgirlfriend.online/tag/milf)** - Create and chat with a virtual AI girlfriend.  
    ![GPT Girlfriend Screenshot](images/gptgirlfriend_screenshot.png)
 
-3. **[Dopple AI](https://beta.dopple.ai/tag/milf)** - Interact with a variety of AI characters from different fictional worlds.  
+3. **[Dopple AI](https://beta.dopple.ai)** - Interact with a variety of AI characters from different fictional worlds.  
    ![Dopple AI Screenshot](images/dopple_screenshot.png)
 
 4. **[Moemate AI](https://www.moemate.io)** - AI characters for lifelike and fictional roleplay from anime, games, and more.  
