@@ -8,22 +8,22 @@ This repository lists various AI platforms where you can chat with lifelike AI c
    ![CrushOn AI Screenshot](images/crushon.png)
 
 2. **[GPT Girlfriend](https://www.gptgirlfriend.online/tag/milf)** - Create and chat with a virtual AI girlfriend.  
-   ![GPT Girlfriend Screenshot](images/gptgirlfriend_screenshot.png)
+   ![GPT Girlfriend Screenshot](images/gptgirlfriend.online.png)
 
 3. **[Dopple AI](https://beta.dopple.ai)** - Interact with a variety of AI characters from different fictional worlds.  
-   ![Dopple AI Screenshot](images/dopple_screenshot.png)
+   ![Dopple AI Screenshot](images/beta.dopple.png)
 
 4. **[Moemate AI](https://www.moemate.io)** - AI characters for lifelike and fictional roleplay from anime, games, and more.  
-   ![Moemate AI Screenshot](images/moemate_screenshot.png)
+   ![Moemate AI Screenshot](images/moemate.png)
 
 5. **[AI Cupid](https://www.aicupid.org)** - Chat with AI partners tailored to your preferences.  
-   ![AI Cupid Screenshot](images/aicupid_screenshot.png)
+   ![AI Cupid Screenshot](images/aicupid.png)
 
 6. **[Talkie AI](https://www.talkie-ai.com)** - Free AI character chat platform.  
-   ![Talkie AI Screenshot](images/talkie_screenshot.png)
+   ![Talkie AI Screenshot](images/talkie-ai.png)
 
 7. **[MiniApps AI](https://miniapps.ai)** - Various AI mini-apps for interactive chats.  
-   ![MiniApps AI Screenshot](images/miniapps_screenshot.png)
+   ![MiniApps AI Screenshot](images/miniapps.png)
 
 ## 📸 Website Screenshots
 
