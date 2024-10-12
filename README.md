@@ -5,7 +5,7 @@ This repository lists various AI platforms where you can chat with lifelike AI c
 ## 📜 AI Character Chat Websites
 
 1. **[CrushOn AI](https://crushon.ai)** - No Filter NSFW Character AI Chat.  
-   ![CrushOn AI Screenshot](images/crushon_screenshot.png)
+   ![CrushOn AI Screenshot](images/crushon.png)
 
 2. **[GPT Girlfriend](https://www.gptgirlfriend.online/tag/milf)** - Create and chat with a virtual AI girlfriend.  
    ![GPT Girlfriend Screenshot](images/gptgirlfriend_screenshot.png)
