@@ -4,7 +4,7 @@ Explore and engage with personalized AI companions from various platforms listed
 
 ---
 
-## 🔗 **70 Top AI Nsfw Chatbot tools**
+## 🔗 **70 Top AI NSFW Chatbot Tools**
 
 Visit the official website for this repository:  
 **[AI Character Chat Platforms](https://1all4outgaming.github.io/AI-Character-Chats/)**
@@ -47,6 +47,11 @@ Visit the official website for this repository:
    Various AI mini-apps for interactive chats.  
    ![MiniApps AI Screenshot](images/miniapps.png)  
 
+
+8. **[Pephop AI](https://pephop.ai)**  
+   Explore engaging AI characters on Pephop for dynamic conversations.  
+   ![Pephop AI Screenshot](images/pephop.png)  
+
 ---
 
 ## 📸 Website Screenshots
@@ -79,12 +84,12 @@ Visit the official website for this repository:
 
 - ![MiniApps AI Screenshot](images/miniapps.png)
 
+<br><br><br>
+
+- ![Pephop AI Screenshot](images/pephop.png)
+
 ---
 
 ## 💻 Repository Info
 
-This repository is updated frequently with new AI character chat websites. Contributions are welcome! If you have any cool platforms to share, feel free to open an issue or submit a pull request.
-
----
-
-Thank you for checking out these AI chat platforms! 🚀
+This repository is updated frequently with new AI character chat websites. Contributions are welcome! If you have any cool platforms t
