@@ -1,6 +1,13 @@
 # 🌐 AI Character Chat Platforms
 
-This repository lists various AI platforms where you can chat with lifelike AI characters. Explore and engage with personalized AI companions from these websites.
+Explore and engage with personalized AI companions from various platforms listed here.
+
+---
+
+## 🔗 **Main Website Link**
+
+Visit the official website for this repository:  
+**[AI Character Chat Platforms](https://1all4outgaming.github.io/AI-Character-Chats/)**
 
 ---
 
