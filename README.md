@@ -3,19 +3,20 @@
 Explore and engage with personalized AI companions from various platforms listed here.
 
 ---
+========================================================================
 <br><br>
 ## 🔗 **70 Top AI NSFW Chatbot Tools**
 
 Visit the official website for this repository:  
 **[70 Top AI NSFW Chatbot list](https://1all4outgaming.github.io/Nsfw-ai-website/)**
-<br>
+<br><br><br><br>
 ---
 ## 🔗 **15 Best NSFW AI Cha**
 
 Visit the official website for this repository:  
 **[15 Best NSFW AI Cha](https://1all4outgaming.github.io/Nsfw-ai-website/website2/)**
 
-
+==============================================================================
 <br><br>
 ## 📜 AI Character Chat Websites
 
