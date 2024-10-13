@@ -50,7 +50,7 @@ Visit the official website for this repository:
 
 8. **[Pephop AI](https://pephop.ai)**  
    Explore engaging AI characters on Pephop for dynamic conversations.  
-   ![Pephop AI Screenshot](images/pephop-ai.webp)  
+   ![Pephop AI Screenshot](images/pephop.ai.png)  
 
 ---
 
@@ -86,7 +86,7 @@ Visit the official website for this repository:
 
 <br><br><br>
 
-- ![Pephop AI Screenshot](images/pephop.png)
+- ![Pephop AI Screenshot](images/pephop.ai.png)
 
 ---
 
