@@ -7,7 +7,7 @@ Explore and engage with personalized AI companions from various platforms listed
 ## 🔗 **70 Top AI NSFW Chatbot Tools**
 
 Visit the official website for this repository:  
-**[AI Character Chat Platforms](https://1all4outgaming.github.io/AI-Character-Chats/)**
+**[AI Character Chat Platforms](https://1all4outgaming.github.io/Nsfw-ai-website/)**
 
 ---
 
