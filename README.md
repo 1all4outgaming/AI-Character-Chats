@@ -16,9 +16,6 @@ Visit the official website for this repository:
 1. **[Temp Gmail Generator](https://www.emailnator.com/)**  
    Generate temporary email addresses for quick access.  
    ![Temp Gmail Generator Screenshot](images/temp mail 2.png)  
-<br><br>
-   ![Temp Gmail Generator Screenshot](images/temp mail 1.png)  
-
 
 3. **[CrushOn AI](https://crushon.ai)**  
    No Filter NSFW Character AI Chat.  
