@@ -16,15 +16,23 @@
 </head>
 <body>
 
-    <video id="player" controls crossorigin>
-        <source src="https://www.youtube.com/watch?v=rljbta2HlWM" type="video/youtube" />
-        Your browser does not support HTML5 video.
-    </video>
+    <!-- Plyr Video Player with Embed Code -->
+    <div id="player-container">
+        <iframe
+            id="player"
+            src="https://www.youtube.com/embed/PTf6ydk9OnE"
+            width="640"
+            height="360"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
 
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
     <script>
         const player = new Plyr('#player', {
-            // Options for customization
             controls: [
                 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'
             ],
@@ -32,9 +40,7 @@
                 noCookie: true,
                 rel: 0,
             },
-            // Enable casting (if supported)
             settings: ['quality', 'speed', 'loop'],
-            // Add additional configurations as needed
         });
     </script>
 
