@@ -11,7 +11,7 @@
             text-align: center;
         }
         .video-container {
-            max-width: 854px;
+            max-width: 640px;
             margin: 20px auto;
             position: relative;
         }
@@ -51,8 +51,8 @@
 <body>
 
     <div class="video-container">
-        <!-- Embedded video -->
-        <iframe id="video-frame" width="854" height="480" src="https://familyporn.tv/embed/4240" frameborder="0" allowfullscreen></iframe>
+        <!-- Updated Embedded YouTube video -->
+        <iframe id="video-frame" width="640" height="360" src="https://www.youtube.com/embed/rljbta2HlWM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
         <!-- Custom Overlay for Double-tap Forward/Backward -->
         <div class="overlay">
@@ -72,19 +72,19 @@
         const iframe = document.getElementById('video-frame');
 
         document.getElementById('backward-btn').addEventListener('click', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: -10 }), '*');
+            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [Math.max(iframe.currentTime - 10, 0), true] }), '*');
         });
 
         document.getElementById('forward-btn').addEventListener('click', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: 10 }), '*');
+            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [iframe.currentTime + 10, true] }), '*');
         });
 
         // Double-tap event for backward/forward
         document.getElementById('left-tap').addEventListener('dblclick', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: -10 }), '*');
+            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [Math.max(iframe.currentTime - 10, 0), true] }), '*');
         });
         document.getElementById('right-tap').addEventListener('dblclick', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: 10 }), '*');
+            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [iframe.currentTime + 10, true] }), '*');
         });
     </script>
 
