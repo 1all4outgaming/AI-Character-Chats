@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <!-- Video.js library for advanced controls -->
+    <link href="https://vjs.zencdn.net/7.21.1/video-js.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .video-container {
+            max-width: 854px;
+            margin: 20px auto;
+        }
+        .vjs-big-play-button {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="854" height="480"
+            poster="your-poster-image.jpg" data-setup="{}">
+            <!-- Video Source -->
+            <source src="https://familyporn.tv/embed/4240" type="video/mp4">
+
+            <!-- Captions (Optional) -->
+            <track kind="captions" src="captions.vtt" srclang="en" label="English" default>
+
+            <!-- Fallback for browsers that don't support the <video> element -->
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <!-- Forward and Backward Buttons -->
+    <div style="text-align: center; margin: 10px 0;">
+        <button onclick="skip(-10)">⏪ Back 10s</button>
+        <button onclick="skip(10)">⏩ Forward 10s</button>
+    </div>
+
+    <!-- Include Video.js -->
+    <script src="https://vjs.zencdn.net/7.21.1/video.min.js"></script>
+
+    <!-- Chromecast Button and Support -->
+    <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
+
+    <script>
+        var player = videojs('my-video');
+
+        // Skip forward/backward function
+        function skip(seconds) {
+            var video = player.el().querySelector('video');
+            video.currentTime += seconds;
+        }
+
+        // Chromecast Setup (You need to configure this further for your domain)
+        window['__onGCastApiAvailable'] = function(isAvailable) {
+            if (isAvailable) {
+                initializeCastApi();
+            }
+        };
+
+        function initializeCastApi() {
+            var sessionRequest = new chrome.cast.SessionRequest(chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID);
+            var apiConfig = new chrome.cast.ApiConfig(sessionRequest, sessionListener, receiverListener);
+            chrome.cast.initialize(apiConfig, onInitSuccess, onError);
+        }
+
+        function sessionListener(e) {
+            console.log('Session established:', e);
+        }
+
+        function receiverListener(e) {
+            if (e === 'available') {
+                console.log('Chromecast Receiver Available');
+            }
+        }
+
+        function onInitSuccess() {
+            console.log('Initialization succeeded');
+        }
+
+        function onError(message) {
+            console.error('Error:', message);
+        }
+    </script>
+
+</body>
+</html>
