@@ -68,31 +68,23 @@
     </div>
 
     <script>
-        // Function to send postMessage to iframe
-        function sendCommandToIframe(command) {
-            var iframe = document.getElementById('video-frame');
-            iframe.contentWindow.postMessage(JSON.stringify({
-                event: 'command',
-                func: command,
-                args: []
-            }), '*');
-        }
+        // Custom controls (forward/backward)
+        const iframe = document.getElementById('video-frame');
 
-        // Forward and backward button functions
         document.getElementById('backward-btn').addEventListener('click', function() {
-            sendCommandToIframe('seekBack(10)');
+            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: -10 }), '*');
         });
 
         document.getElementById('forward-btn').addEventListener('click', function() {
-            sendCommandToIframe('seekForward(10)');
+            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: 10 }), '*');
         });
 
-        // Handle double-tap for backward and forward
+        // Double-tap event for backward/forward
         document.getElementById('left-tap').addEventListener('dblclick', function() {
-            sendCommandToIframe('seekBack(10)');
+            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: -10 }), '*');
         });
         document.getElementById('right-tap').addEventListener('dblclick', function() {
-            sendCommandToIframe('seekForward(10)');
+            iframe.contentWindow.postMessage(JSON.stringify({ method: 'seek', seconds: 10 }), '*');
         });
     </script>
 
