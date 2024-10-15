@@ -12,16 +12,17 @@
             text-align: center;
             padding: 20px;
         }
+        #player-container {
+            max-width: 640px;
+            margin: auto;
+        }
     </style>
 </head>
 <body>
 
     <!-- Plyr Video Player with YouTube Embed -->
     <div id="player-container">
-        <video id="player" controls crossorigin>
-            <source src="https://www.youtube.com/watch?v=PTf6ydk9OnE" type="video/youtube" />
-            Your browser does not support HTML5 video.
-        </video>
+        <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="PTf6ydk9OnE"></div>
     </div>
 
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
