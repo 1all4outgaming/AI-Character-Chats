@@ -3,88 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Video Player</title>
+    <title>Plyr Video Player</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             text-align: center;
-        }
-        .video-container {
-            max-width: 640px;
-            margin: 20px auto;
-            position: relative;
-        }
-        .custom-controls {
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            display: flex;
-            justify-content: space-between;
-            z-index: 10;
-        }
-        .tap-area {
-            width: 50%;
-            height: 100%;
-            cursor: pointer;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <!-- Updated Embedded YouTube video -->
-        <iframe id="video-frame" width="640" height="360" src="https://www.youtube.com/embed/rljbta2HlWM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <video id="player" controls crossorigin>
+        <source src="https://www.youtube.com/watch?v=rljbta2HlWM" type="video/youtube" />
+        Your browser does not support HTML5 video.
+    </video>
 
-        <!-- Custom Overlay for Double-tap Forward/Backward -->
-        <div class="overlay">
-            <div class="tap-area" id="left-tap"></div>
-            <div class="tap-area" id="right-tap"></div>
-        </div>
-    </div>
-
-    <!-- Custom Controls -->
-    <div class="custom-controls">
-        <button id="backward-btn">⏪ Back 10s</button>
-        <button id="forward-btn">⏩ Forward 10s</button>
-    </div>
-
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
     <script>
-        // Custom controls (forward/backward)
-        const iframe = document.getElementById('video-frame');
-
-        document.getElementById('backward-btn').addEventListener('click', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [Math.max(iframe.currentTime - 10, 0), true] }), '*');
-        });
-
-        document.getElementById('forward-btn').addEventListener('click', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [iframe.currentTime + 10, true] }), '*');
-        });
-
-        // Double-tap event for backward/forward
-        document.getElementById('left-tap').addEventListener('dblclick', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [Math.max(iframe.currentTime - 10, 0), true] }), '*');
-        });
-        document.getElementById('right-tap').addEventListener('dblclick', function() {
-            iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'seekTo', args: [iframe.currentTime + 10, true] }), '*');
+        const player = new Plyr('#player', {
+            // Options for customization
+            controls: [
+                'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'
+            ],
+            youtube: {
+                noCookie: true,
+                rel: 0,
+            },
+            // Enable casting (if supported)
+            settings: ['quality', 'speed', 'loop'],
+            // Add additional configurations as needed
         });
     </script>
 
