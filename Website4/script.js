@@ -1,4 +1,8 @@
 let peerConnection;
+let dataChannel;
+let fileReader;
+const CHUNK_SIZE = 16384;
+
 const fileInput = document.getElementById('fileInput');
 const sendBtn = document.getElementById('sendBtn');
 const status = document.getElementById('status');
@@ -19,35 +23,55 @@ sendBtn.addEventListener('click', () => {
 function createOffer(file) {
     peerConnection = new RTCPeerConnection();
 
-    // Create data channel
-    const dataChannel = peerConnection.createDataChannel('fileTransfer');
-    dataChannel.onopen = () => console.log('Data channel open');
-    dataChannel.onclose = () => console.log('Data channel closed');
+    // Create data channel for file transfer
+    dataChannel = peerConnection.createDataChannel('fileTransfer');
+    dataChannel.binaryType = 'arraybuffer';
 
-    dataChannel.onmessage = event => {
-        // Receiver will trigger download when data is received
-        const receivedBlob = new Blob([event.data]);
-        downloadLink.href = URL.createObjectURL(receivedBlob);
-        downloadLink.download = file.name;
-        downloadSection.classList.remove('hidden');
-        status.textContent = 'File received!';
+    dataChannel.onopen = () => {
+        console.log('Data channel open');
+        sendFile(file);
     };
 
+    dataChannel.onclose = () => console.log('Data channel closed');
+
     // Create offer
-    peerConnection.createOffer()
-        .then(offer => {
-            peerConnection.setLocalDescription(offer);
-            const offerLink = window.location.href + '?offer=' + btoa(offer.sdp);
-            shareLink.value = offerLink;
-            linkContainer.classList.remove('hidden');
-            status.textContent = 'Waiting for peer to connect...';
-        });
+    peerConnection.createOffer().then(offer => {
+        peerConnection.setLocalDescription(offer);
+        const offerLink = window.location.href + '?offer=' + btoa(offer.sdp);
+        shareLink.value = offerLink;
+        linkContainer.classList.remove('hidden');
+        status.textContent = 'Waiting for peer to connect...';
+    });
 
     peerConnection.onicecandidate = event => {
         if (event.candidate) {
             console.log('ICE candidate:', event.candidate);
         }
     };
+}
+
+function sendFile(file) {
+    status.textContent = 'Sending file...';
+    fileReader = new FileReader();
+    let offset = 0;
+
+    fileReader.onload = e => {
+        dataChannel.send(e.target.result);
+        offset += e.target.result.byteLength;
+        if (offset < file.size) {
+            readSlice(offset);
+        } else {
+            dataChannel.close();
+            status.textContent = 'File sent successfully!';
+        }
+    };
+
+    readSlice(0);
+
+    function readSlice(o) {
+        const slice = file.slice(o, o + CHUNK_SIZE);
+        fileReader.readAsArrayBuffer(slice);
+    }
 }
 
 function handleAnswer(answerSdp) {
@@ -61,12 +85,17 @@ function handleAnswer(answerSdp) {
 function connectPeer(offerSdp) {
     peerConnection = new RTCPeerConnection();
 
-    // Create data channel
+    // Handle data channel when it's opened by the peer
     peerConnection.ondatachannel = event => {
-        const dataChannel = event.channel;
-
+        dataChannel = event.channel;
+        const receivedChunks = [];
+        
         dataChannel.onmessage = event => {
-            const receivedBlob = new Blob([event.data]);
+            receivedChunks.push(event.data);
+        };
+
+        dataChannel.onclose = () => {
+            const receivedBlob = new Blob(receivedChunks);
             downloadLink.href = URL.createObjectURL(receivedBlob);
             downloadLink.download = 'received_file';
             downloadSection.classList.remove('hidden');
