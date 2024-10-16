@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P File Transfer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    input {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>P2P File Transfer</h1>
+  <input type="file" id="fileInput" />
+  <button id="sendBtn">Send File</button>
+  <div id="linkContainer" style="display:none;">
+    <p>Share this link with your peer to download the file:</p>
+    <a id="shareLink"></a>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.0/simplepeer.min.js"></script>
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const linkContainer = document.getElementById('linkContainer');
+    const shareLink = document.getElementById('shareLink');
+
+    let peer;
+
+    // Create a peer connection (as a sender)
+    function createSenderPeer(file) {
+      peer = new SimplePeer({ initiator: true });
+
+      peer.on('signal', data => {
+        const offerLink = `${window.location.href}?offer=${btoa(JSON.stringify(data))}`;
+        linkContainer.style.display = 'block';
+        shareLink.href = offerLink;
+        shareLink.textContent = offerLink;
+      });
+
+      peer.on('connect', () => {
+        console.log('Connection established. Sending file...');
+        peer.send(file);
+      });
+
+      peer.on('close', () => {
+        console.log('Connection closed.');
+      });
+    }
+
+    // Function to initiate file send
+    sendBtn.addEventListener('click', () => {
+      if (fileInput.files.length > 0) {
+        const file = fileInput.files[0];
+        createSenderPeer(file);
+      } else {
+        alert('Please select a file to send.');
+      }
+    });
+
+    // Handle receiving a file (for receiver)
+    const queryParams = new URLSearchParams(window.location.search);
+    const offer = queryParams.get('offer');
+    if (offer) {
+      const parsedOffer = JSON.parse(atob(offer));
+
+      peer = new SimplePeer();
+
+      peer.on('signal', data => {
+        const answerLink = `${window.location.href}?answer=${btoa(JSON.stringify(data))}`;
+        console.log(`Send this link back to the sender: ${answerLink}`);
+      });
+
+      peer.on('data', data => {
+        const url = URL.createObjectURL(new Blob([data]));
+        const downloadLink = document.createElement('a');
+        downloadLink.href = url;
+        downloadLink.download = 'downloaded-file';
+        downloadLink.textContent = 'Download File';
+        document.body.appendChild(downloadLink);
+      });
+
+      peer.signal(parsedOffer);
+    }
+  </script>
+</body>
+</html>
